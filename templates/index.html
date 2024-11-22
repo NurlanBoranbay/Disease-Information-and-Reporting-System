@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Main Dashboard</title>
+</head>
+<body>
+    <h1>Main Dashboard</h1>
+    <ul>
+        <li><a href="{{ url_for('list_users') }}">Users</a></li>
+        <li><a href="{{ url_for('list_country') }}">Countries</a></li>
+        <li><a href="{{ url_for('list_discover') }}">Discoveries</a></li>
+        <li><a href="{{ url_for('list_disease') }}">Diseases</a></li>
+        <li><a href="{{ url_for('list_diseasetype') }}">Disease Types</a></li>
+        <li><a href="{{ url_for('list_doctor') }}">Doctors</a></li>
+        <li><a href="{{ url_for('list_patientdisease') }}">Patient Diseases</a></li>
+    </ul>
+</body>
+</html>

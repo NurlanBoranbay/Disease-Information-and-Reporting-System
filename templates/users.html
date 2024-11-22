@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+
+    <title>Users List</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <h1>Users List</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Surname</th>
+                <th>Salary</th>
+                <th>Country</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user.email }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.surname }}</td>
+                <td>{{ user.salary }}</td>
+                <td>{{ user.cname }}</td>
+                <td>{{ user.phone }}</td>
+                <td class="actions">
+                    <a href="/user/update/{{ user.email }}" class="add-button">Edit</a>
+                    <form method="POST" action="/user/delete/{{ user.email }};">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/user/add" class="add-button">Add New User</a>
+</body>
+</html>

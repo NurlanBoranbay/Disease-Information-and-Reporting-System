@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Add User</title>
+</head>
+<body>
+    <a href="/">Home</a>
+    <h1>Add New User</h1>
+    <form method="POST" action="/user/add">
+        <label>Email:</label>
+        <input type="email" name="email" placeholder="Enter email" required>
+        <label>Name:</label>
+        <input type="text" name="name" placeholder="Enter name" required>
+        <label>Surname:</label>
+        <input type="text" name="surname" placeholder="Enter surname" required>
+        <label>Salary:</label>
+        <input type="number" step="0.01" name="salary" placeholder="Enter salary" required>
+        <label>Country:</label>
+        <select name="cname" required>
+            {% for country in countries %}
+            <option value="{{ country }}">{{ country }}</option>
+            {% endfor %}
+        </select>
+        <label>Phone:</label>
+        <input type="text" name="phone" placeholder="Enter phone number" required>
+        <button type="submit">Add User</button>
+    </form>
+    <a href="/user" class="add-button">View Users</a>
+</body>
+</html>
